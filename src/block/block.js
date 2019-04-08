@@ -69,7 +69,7 @@ registerBlockType('cgb/block-my-slider-block', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	edit: ({ className, setAttributes, attributes }) => {
-		const { images, currentIndex, translateValue } = attributes;
+		const { images = [], currentIndex, translateValue } = attributes;
 
 		const goToPrevSlide = () => {
 			if (currentIndex === 0)
@@ -131,12 +131,56 @@ registerBlockType('cgb/block-my-slider-block', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	save: ({ className, setAttributes, attributes }) => {
+		const { images = [], currentIndex, translateValue } = attributes;
+
+		const goToPrevSlide = () => {
+			if (currentIndex === 0)
+				return;
+
+			setAttributes({
+				currentIndex: currentIndex - 1,
+				translateValue: translateValue + slideWidth()
+			});
+		}
+
+		const goToNextSlide = () => {
+			// Exiting the method early if we are at the end of the images array.
+			// We also want to reset currentIndex and translateValue, so we return
+			// to the first image in the array.
+			if (currentIndex === images.length - 1) {
+				return setAttributes({
+					currentIndex: 0,
+					translateValue: 0
+				});
+			}
+
+			// This will not run if we met the if condition above
+			setAttributes({
+				currentIndex: currentIndex + 1,
+				translateValue: translateValue + -(slideWidth())
+			});
+		}
+
+		const slideWidth = () => {
+			return document.querySelector('.slide').clientWidth
+		}
+		
 		return (
 			<div className={className}>
 				<div className="slider">
 					<p>My Slider</p>
-				</div>
-			</div>
+					<div className="slider-wrapper" style={{
+						transform: `translateX(${translateValue}px)`,
+						transition: 'transform ease-out 0.45s'
+					}}>
+						{images.map((image, i) => (
+							<Slide key={i} image={image} />
+						))}
+					</div>
+					<LeftArrow goToPrevSlide={goToPrevSlide} />
+					<RightArrow goToNextSlide={goToNextSlide} />
+				</div >
+			</div >
 		);
 	},
 	useOnce: false,
