@@ -1,4 +1,4 @@
-#My-slider-gutenberg-block
+# My-slider-gutenberg-block
 
 ## 👉  `npm start`
 - Use to compile and run the block in development mode.
