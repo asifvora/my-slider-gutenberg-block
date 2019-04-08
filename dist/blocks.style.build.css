@@ -1,0 +1,51 @@
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+.slider {
+  position: relative;
+  width: 500px;
+  margin: 0 auto;
+  height: 350px;
+  overflow: hidden;
+  white-space: nowrap; }
+  .slider .slider-wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%; }
+    .slider .slider-wrapper .slide {
+      display: inline-block;
+      height: 100%;
+      width: 100%; }
+  .slider .arrow-custom {
+    height: 50px;
+    width: 50px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+    background: #f9f9f9;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-transition: -webkit-transform ease-in .1s;
+    transition: -webkit-transform ease-in .1s;
+    -o-transition: transform ease-in .1s;
+    transition: transform ease-in .1s;
+    transition: transform ease-in .1s, -webkit-transform ease-in .1s; }
+  .slider .nextArrow {
+    position: absolute;
+    top: 50%;
+    right: 10px; }
+  .slider .backArrow {
+    position: absolute;
+    top: 50%;
+    left: 10px; }
