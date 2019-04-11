@@ -1,13 +1,10 @@
 <?php
 /**
- * Plugin Name: my-slider-block — CGB Gutenberg Block Plugin
- * Plugin URI: https://github.com/ahmadawais/create-guten-block/
- * Description: my-slider-block — is a Gutenberg plugin created via create-guten-block.
- * Author: mrahmadawais, maedahbatool
- * Author URI: https://AhmadAwais.com/
+ * Plugin Name: My slider block 
+ * Description: My slider block  — is a Gutenberg block created via create-guten-block.
+ * Author: asifvora
+ * Author URI: asifvora.tk/
  * Version: 1.0.0
- * License: GPL2+
- * License URI: https://www.gnu.org/licenses/gpl-2.0.txt.
  */
 
 // Exit if accessed directly.

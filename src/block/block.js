@@ -132,8 +132,9 @@ registerBlockType('cgb/block-my-slider-block', {
 	 */
 	save: ({ className, setAttributes, attributes }) => {
 		const { images = [], currentIndex, translateValue } = attributes;
-
+		console.log('save')
 		const goToPrevSlide = () => {
+			console.log('goToPrevSlide')
 			if (currentIndex === 0)
 				return;
 
@@ -144,6 +145,7 @@ registerBlockType('cgb/block-my-slider-block', {
 		}
 
 		const goToNextSlide = () => {
+			console.log('goToNextSlide')
 			// Exiting the method early if we are at the end of the images array.
 			// We also want to reset currentIndex and translateValue, so we return
 			// to the first image in the array.
